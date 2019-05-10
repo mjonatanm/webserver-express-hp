@@ -4,15 +4,15 @@ const hbs = require('hbs');
 
 require('./hbs/helpers');
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
 
 //Express HBS engine
+hbs.registerPartials(__dirname + '/views/parciales'); //Esto nos sirve para reutilizar codigo HTML
 app.set('view engine', 'hbs');
 
 //Configuracion. Se escribe {{ nombre del archivo hbs }}
-hbs.registerPartials(__dirname + '/views/parciales'); //Esto nos sirve para reutilizar codigo HTML
 
 
 
